@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BIZDRM</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../assets/css/_common.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../../tailwind.config.js"></script>
+    <script src="../../assets/js/jquery-2.2.0.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header class="bg-white sticky top-0 z-20">
+      <nav class="nav default-inner h-full flex justify-between">
+        <a class="p-0" href="../main/main.html">
+          <div class="logo"></div>
+        </a>
+        <div class="flex h-full" id="navbarSupportedContent">
+          <ul class="nav-item-list ml-auto h-full flex">
+            <li class="nav-item">
+              <a class="nav-link px-0 h-full" href="../main/main.html"
+                >HOME<span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 h-full" href="#">서비스 소개</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 h-full" href="#">고객지원</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 h-full" href="../data/dataManagement.html"
+                >데이터 관리</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 h-full" href="#">캠페인</a>
+              <div class="sub-menu rounded-b-lg">
+                <a
+                  class="sub-menu-item text-center no-underline text-lg py-3 bg-biz-red"
+                  href="../campaign/lead.html"
+                  >리드</a
+                >
+                <a
+                  class="sub-menu-item text-center no-underline text-lg py-3 bg-biz-red"
+                  href="../campaign/list.html"
+                  >리스트</a
+                >
+                <a
+                  class="sub-menu-item text-center no-underline text-lg py-3 bg-biz-red"
+                  href="../campaign/campaign.html"
+                  >캠페인</a
+                >
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 h-full" href="../plan/plan.html">플랜</a>
+            </li>
+          </ul>
+          <!-- 로그인 전 후 디자인상으로는 텍스트만 바뀜. -->
+          <!-- 1. 로그인 전 -->
+          <div class="flex items-center ml-12">
+            <a
+              href="../login/login.html"
+              class="no-underline text-black font-bold text-sm flex items-center mr-10"
+              ><span class="login-icon mr-1"></span>로그인</a
+            >
+            <a
+              href="../login/login.html"
+              class="no-underline font-bold x items-center"
+              ><span class="logout-icon mr-1"></span>회원가입</a
+            >
+          </div>
+          <!-- 2 . 로그인 후 -->
+          <!-- <div class="flex items-center ml-12">
+            <a href="../login/login.html" class="no-underline text-black font-bold text-sm flex items-center mr-10"
+              ><span class="login-icon mr-1"></span>로그아웃</a
+            >
+            <a href="../login/login.html" class="no-underline text-biz-red font-bold text-sm flex items-center"
+              ><span class="logout-icon mr-1"></span>김호진님</a
+            >
+          </div> -->
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="data-management-page bg-biz-light-red">
+        <div class="bg-[#822325] h-[277px]">
+          <div class="inner h-full">
+            <ul class="row h-full">
+              <li class="col-4 flex items-center justify-center">
+                <h2 class="text-white font-bold text-[28px]">Data Query</h2>
+              </li>
+              <li class="col-8 flex items-center gap-16">
+                <ul class="ml-auto">
+                  <li class="flex items-center mb-6">
+                    <label
+                      class="w-[102px] shrink-0 text-white text-sm font-bold"
+                      for=""
+                      >검색한 리스트명</label
+                    >
+                    <div class="basic-input-wrap w-[330px]">
+                      <input id="listName" type="text" placeholder="리스트명" />
+                    </div>
+                  </li>
+                  <li class="flex items-center mb-6">
+                    <label
+                      class="w-[102px] shrink-0 text-white text-sm font-bold"
+                      for=""
+                      >리스트 아이디</label
+                    >
+                    <div class="basic-input-wrap w-[330px]">
+                      <input
+                        id="listId"
+                        type="text"
+                        placeholder="리스트 아이디"
+                      />
+                    </div>
+                  </li>
+                  <li class="flex items-center">
+                    <label
+                      class="w-[102px] shrink-0 text-white text-sm font-bold"
+                      for=""
+                      >API Key</label
+                    >
+                    <div class="basic-input-wrap w-[330px]">
+                      <input id="apiKey" type="text" placeholder="API Key" />
+                    </div>
+                  </li>
+                </ul>
+                <button
+                  class="bg-[#BE3034] rounded-xl w-[131px] h-[125px] flex flex-col items-center justify-center"
+                >
+                  <span class="search-img w-[38px] h-[38px] shrink-0"></span>
+                  <span class="mt-2.5 text-white font-bold text-base"
+                    >리스트 조회</span
+                  >
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="inner">
+          <div class="py-24">
+            <ul class="row gap-x-4">
+              <li class="col data-box bg-white rounded-md">
+                <h2 class="font-bold text-lg mb-8">리스트 목록</h2>
+              </li>
+              <li class="col data-box bg-white rounded-md">
+                <h2 class="blind">리드, 방문자 목록</h2>
+                <section class="mb-5">
+                  <h3
+                    class="font-bold text-lg mb-2.5 flex justify-between items-center"
+                  >
+                    리드 목록
+                    <div class="flex gap-1">
+                      <button
+                        class="p-2 text-sm rounded-sm text-white bg-biz-purple leading-none font-normal"
+                        type="button"
+                      >
+                        선택저장
+                      </button>
+                      <button
+                        class="p-2 text-sm rounded-sm text-white bg-biz-green leading-none ml-25 font-normal"
+                        type="button"
+                      >
+                        현재 페이지 저장
+                      </button>
+                      <button
+                        class="p-2 text-sm rounded-sm text-white bg-biz-red leading-none ml-25 font-normal"
+                        type="button"
+                      >
+                        모두저장
+                      </button>
+                    </div>
+                  </h3>
+                  <div
+                    class="table-wrap table-responsive flex flex-col bg-white justify-between h-60"
+                  >
+                    <table
+                      class="red-table table table-borderless table-striped mb-0"
+                    >
+                      <thead>
+                        <tr>
+                          <th class="text-center" colspan="3">리드코드</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th class="text-center" scope="row">
+                            <div>
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="checkboxNoLabel"
+                                value=""
+                                aria-label="..."
+                              />
+                            </div>
+                          </th>
+                          <td class="text-center">afldkajfldkajfldak</td>
+                          <td class="text-center">리드</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+                <section class="">
+                  <h3
+                    class="font-bold text-lg mb-2.5 flex justify-between items-center"
+                  >
+                    방문자 목록
+                    <div class="flex gap-1">
+                      <button
+                        class="p-2 text-sm rounded-sm text-white bg-biz-purple leading-none font-normal"
+                        type="button"
+                      >
+                        선택저장
+                      </button>
+                      <button
+                        class="p-2 text-sm rounded-sm text-white bg-biz-green leading-none ml-25 font-normal"
+                        type="button"
+                      >
+                        현재 페이지 저장
+                      </button>
+                      <button
+                        class="p-2 text-sm rounded-sm text-white bg-biz-red leading-none ml-25 font-normal"
+                        type="button"
+                      >
+                        모두저장
+                      </button>
+                    </div>
+                  </h3>
+                  <div
+                    class="table-wrap table-responsive flex flex-col bg-white justify-between h-60"
+                  >
+                    <table
+                      class="red-table table table-borderless table-striped mb-0"
+                    >
+                      <thead>
+                        <tr>
+                          <th class="text-center" colspan="3">방문자 코드</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th class="text-center" scope="row">
+                            <div>
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="checkboxNoLabel"
+                                value=""
+                                aria-label="..."
+                              />
+                            </div>
+                          </th>
+                          <td class="text-center">text</td>
+                          <td class="text-center">text</td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">
+                            <div>
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="checkboxNoLabel"
+                                value=""
+                                aria-label="..."
+                              />
+                            </div>
+                          </th>
+                          <td class="text-center">text</td>
+                          <td class="text-center">text</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              </li>
+              <li class="col data-box bg-white rounded-md">
+                <h2 class="font-bold text-lg mb-12">이벤트 목록</h2>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="footer-inner default-inner flex items-center">
+        <figure class="footer-logo">
+          <img src="../../assets/images/common/logo.svg" alt="BIZDRM" />
+        </figure>
+        <div class="footer-content">
+          <div class="flex mb-10">
+            <a class="text-lg text-black mr-6" href="">서비스 이용약관</a>
+            <a class="text-lg text-black" href="">개인정보처리방침</a>
+          </div>
+          <p class="text-lg mb-0">
+            아이에이엠파트너즈 I 통신판매신고번호 : 2021-충부청주-1203 I
+            대표이사 : 김현민 iampatners2023@gmail.com
+          </p>
+          <p class="text-lg mb-0 mt-1">
+            고객센터 : 063-244-2919 I 주소 : 전라북도 전주시 덕진구 인후동1가
+            500-48
+          </p>
+          <p class="text-lg mt-10 mb-0">
+            Copyright (c) Iampartners All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
